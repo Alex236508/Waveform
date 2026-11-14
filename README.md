@@ -6,7 +6,7 @@ A vanilla JavaScript, HTML, CSS, Web Audio API, and Canvas project that runs as 
 
 1. Install Node.js 18 or newer.
 2. From this folder, run `npm run build`.
-3. Open `dist/bookmarklet.txt`, copy the complete `javascript:...` URL, and create a bookmark in your browser. Name it **Waveform** and paste the URL into the bookmark's URL/location field.
+3. Open `dist/bookmarklet.js`, copy the complete `javascript:...` URL, and create a bookmark in your browser. Name it **Waveform** and paste the URL into the bookmark's URL/location field.
 4. Open a page with audio or video, then click the Waveform bookmark.
 5. Open **Audio** in the settings panel and connect a detected page media element, choose a local audio file, or enable the microphone.
 6. Click the bookmark again to show/hide settings. Use the × button to close and clean up the overlay.
