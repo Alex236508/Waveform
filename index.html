@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b14">
+  <title>Waveform · Browser Audio Visualizer</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; padding: 40px 20px; color: #edf3ff; background: radial-gradient(circle at 50% 0%, #1d2944 0, #0a0e18 50%, #070a11 100%); font-family: Inter, system-ui, sans-serif; }
+    main { max-width: 760px; margin: 0 auto; }
+    h1 { margin-bottom: 8px; letter-spacing: -.04em; }
+    p { color: #9baac1; line-height: 1.65; }
+    .demo-card { margin-top: 26px; padding: 22px; border: 1px solid #29344b; border-radius: 18px; background: rgba(18,25,40,.78); }
+    audio { width: 100%; margin-top: 12px; }
+    button { margin-top: 14px; padding: 10px 14px; border: 0; border-radius: 9px; background: #62e4c3; color: #05251c; font-weight: 750; cursor: pointer; }
+    code { color: #9bf2d9; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Waveform</h1>
+    <p>A local test page for the CAVA-inspired browser visualizer. Load an audio file in the player below, then open the visualizer from the bookmarklet or the launch button. Page-media capture depends on browser support and media origin permissions.</p>
+    <section class="demo-card">
+      <h2>Test audio player</h2>
+      <p>Choose a local audio file to test the page-media selector. The visualizer does not ship with copyrighted sample audio.</p>
+      <input id="demo-file" type="file" accept="audio/*">
+      <audio id="demo-audio" controls></audio>
+      <button id="launch">Launch visualizer</button>
+    </section>
+    <p>For microphone testing, use the Audio tab and grant permission when the browser asks.</p>
+  </main>
+  <script>
+    const demoFile = document.querySelector("#demo-file");
+    const demoAudio = document.querySelector("#demo-audio");
+    let demoUrl = null;
+    demoFile.addEventListener("change", () => {
+      if (demoUrl) URL.revokeObjectURL(demoUrl);
+      if (demoFile.files[0]) {
+        demoUrl = URL.createObjectURL(demoFile.files[0]);
+        demoAudio.src = demoUrl;
+      }
+    });
+    document.querySelector("#launch").addEventListener("click", () => {
+      const script = document.createElement("script");
+      script.src = "./demo.bundle.js";
+      document.head.appendChild(script);
+    });
+  </script>
+</body>
+</html>

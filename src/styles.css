@@ -1,0 +1,81 @@
+:host { all: initial; position: fixed; inset: 0; z-index: 2147483647; pointer-events: none; }
+.cava-shell, .cava-shell * { box-sizing: border-box; }
+.cava-shell { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #eef2ff; line-height: 1.4; }
+.cava-canvas { position: fixed; inset: 0; z-index: 2147483640; pointer-events: none; display: block; }
+.cava-panel { position: fixed; z-index: 2147483642; top: 18px; right: 18px; width: min(390px, calc(100vw - 24px)); max-height: min(760px, calc(100vh - 36px)); display: flex; flex-direction: column; overflow: hidden; color: #eef2ff; background: rgba(13, 17, 29, .97); border: 1px solid rgba(148, 163, 184, .2); border-radius: 18px; box-shadow: 0 24px 80px rgba(0, 0, 0, .46), 0 2px 12px rgba(0, 0, 0, .2); backdrop-filter: blur(22px); transition: opacity .18s ease, transform .18s ease; pointer-events: auto; }
+.cava-panel-hidden .cava-panel { opacity: 0; transform: translateY(-8px) scale(.985); pointer-events: none; visibility: hidden; }
+.cava-fab { position: fixed; z-index: 2147483643; top: 18px; right: 18px; width: 44px; height: 44px; display: none; place-items: center; border: 1px solid rgba(143, 164, 194, .24); border-radius: 14px; background: #151c2c; color: #7cf3d1; font-family: inherit; font-size: 24px; font-weight: 700; line-height: 1; cursor: pointer; box-shadow: 0 8px 28px rgba(0, 0, 0, .32); pointer-events: auto; }
+.cava-panel-hidden .cava-fab { display: grid; }
+.cava-header { display: flex; align-items: center; justify-content: space-between; padding: 17px 18px 14px; border-bottom: 1px solid rgba(148, 163, 184, .12); }
+.cava-brand { display: flex; align-items: center; gap: 11px; }
+.cava-brand-mark { display: grid; place-items: center; width: 37px; height: 37px; border-radius: 12px; color: #06271f; background: linear-gradient(145deg, #75f7d5, #40cdb7); font-size: 27px; font-weight: 800; }
+.cava-brand strong { display: block; font-size: 12px; font-weight: 800; letter-spacing: .18em; }
+.cava-brand small { display: block; margin-top: 2px; color: #74829b; font-size: 9px; font-weight: 700; letter-spacing: .12em; }
+.cava-header-actions { display: flex; gap: 7px; }
+.cava-icon-button { width: 30px; height: 30px; border: 1px solid rgba(148, 163, 184, .15); border-radius: 9px; color: #a7b3c8; background: rgba(255,255,255,.035); font-family: inherit; font-size: 19px; font-weight: 400; line-height: 1; cursor: pointer; }
+.cava-icon-button:hover { color: #fff; background: rgba(255,255,255,.09); }
+.cava-icon-button.cava-close:hover { color: #ff9caa; border-color: rgba(248,113,113,.4); }
+.cava-status-row { display: flex; align-items: center; gap: 8px; padding: 9px 18px; color: #a5b2c7; background: rgba(255,255,255,.025); font-size: 10px; }
+.cava-status-dot { width: 7px; height: 7px; flex: 0 0 auto; border-radius: 50%; background: #6ee7b7; box-shadow: 0 0 10px rgba(110,231,183,.55); }
+.cava-status { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cava-tabs { display: flex; gap: 3px; padding: 9px 10px 0; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid rgba(148,163,184,.12); }
+.cava-tabs::-webkit-scrollbar { display: none; }
+.cava-tabs button { flex: 0 0 auto; padding: 9px 9px 10px; border: 0; border-bottom: 2px solid transparent; color: #718099; background: transparent; font-family: inherit; font-size: 10px; font-weight: 650; line-height: 1.2; cursor: pointer; }
+.cava-tabs button:hover { color: #d7e1f2; }
+.cava-tabs button.is-active { color: #82f0d0; border-bottom-color: #49dfbd; }
+.cava-panel-body { overflow: auto; padding: 16px 18px 20px; scrollbar-width: thin; scrollbar-color: #344158 transparent; }
+.cava-page { display: none; }
+.cava-page.is-active { display: block; animation: cava-fade-in .18s ease; }
+@keyframes cava-fade-in { from { opacity: .4; transform: translateY(3px); } to { opacity: 1; transform: translateY(0); } }
+.cava-section-heading { display: flex; align-items: center; justify-content: space-between; margin: 0 0 17px; }
+.cava-eyebrow { color: #5c6d87; font-size: 9px; font-weight: 800; letter-spacing: .2em; }
+.cava-section-heading h2 { margin: 3px 0 0; color: #f2f5fc; font-size: 21px; font-weight: 750; letter-spacing: -.035em; }
+.cava-section-icon { color: #5bdfc1; font-size: 25px; }
+.cava-description { margin: -5px 0 16px; color: #8796ad; font-size: 11px; line-height: 1.6; }
+.cava-control { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 42px; padding: 8px 0; border-bottom: 1px solid rgba(148,163,184,.09); color: #c4cee0; font-size: 11px; }
+.cava-control select { width: 57%; min-width: 130px; padding: 8px 9px; border: 1px solid rgba(148,163,184,.17); border-radius: 9px; outline: none; color: #e8eefb; background: #1a2334; font-family: inherit; font-size: 10px; font-weight: 600; }
+.cava-control input[type="color"] { width: 47px; height: 28px; padding: 2px; border: 1px solid rgba(148,163,184,.2); border-radius: 8px; background: #202b3e; cursor: pointer; }
+.cava-toggle-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(148,163,184,.09); cursor: pointer; }
+.cava-toggle-row strong { display: block; color: #dce5f4; font-size: 11px; font-weight: 650; }
+.cava-toggle-row small { display: block; margin-top: 2px; color: #77879f; font-size: 9px; }
+.cava-toggle-row input { position: absolute; opacity: 0; pointer-events: none; }
+.cava-toggle-row i { position: relative; width: 34px; height: 19px; flex: 0 0 auto; border-radius: 20px; background: #344155; transition: background .16s ease; }
+.cava-toggle-row i::after { content: ""; position: absolute; top: 3px; left: 3px; width: 13px; height: 13px; border-radius: 50%; background: #aeb9ca; transition: transform .16s ease, background .16s ease; }
+.cava-toggle-row input:checked + i { background: #1b806d; }
+.cava-toggle-row input:checked + i::after { transform: translateX(15px); background: #c2fff0; }
+.cava-toggle-row input:focus-visible + i { outline: 2px solid #62e8c7; outline-offset: 3px; }
+.cava-range-control { padding: 12px 0 10px; border-bottom: 1px solid rgba(148,163,184,.09); }
+.cava-range-control label { display: flex; justify-content: space-between; gap: 12px; color: #c4cee0; font-size: 11px; }
+.cava-range-control output { color: #69dfc2; font-variant-numeric: tabular-nums; font-weight: 700; }
+.cava-range-control input[type="range"] { display: block; width: 100%; height: 18px; margin: 7px 0 0; accent-color: #54dbbc; cursor: pointer; }
+.cava-primary-button, .cava-secondary-button { width: 100%; min-height: 37px; margin-top: 12px; padding: 9px 12px; border: 1px solid rgba(91,225,193,.25); border-radius: 10px; color: #08281f; background: linear-gradient(135deg, #79f2d2, #43cdb5); font-family: inherit; font-size: 10px; font-weight: 750; cursor: pointer; transition: filter .14s ease, transform .14s ease; }
+.cava-primary-button:hover, .cava-secondary-button:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.cava-secondary-button { color: #c6d4e7; border-color: rgba(148,163,184,.18); background: rgba(255,255,255,.045); }
+.cava-secondary-button:disabled { opacity: .4; cursor: not-allowed; transform: none; }
+.cava-inline-note { margin-top: 13px; padding: 10px 11px; border: 1px solid rgba(113,130,160,.15); border-radius: 10px; color: #8191a9; background: rgba(255,255,255,.025); font-size: 9px; line-height: 1.55; }
+.cava-gradient-title { display: flex; align-items: center; justify-content: space-between; margin: 17px 0 8px; color: #dae3f1; font-size: 11px; }
+.cava-text-button { padding: 5px 0 5px 8px; border: 0; color: #6de0c2; background: transparent; font-family: inherit; font-size: 10px; font-weight: 700; cursor: pointer; }
+.cava-stop-row { display: grid; grid-template-columns: 1fr 55px 27px; align-items: center; gap: 9px; padding: 6px 0; color: #98a8bf; font-size: 10px; }
+.cava-stop-row input[type="color"] { width: 52px; height: 28px; padding: 2px; border: 1px solid rgba(148,163,184,.2); border-radius: 8px; background: #202b3e; cursor: pointer; }
+.cava-remove-stop { width: 26px; height: 26px; border: 1px solid rgba(148,163,184,.14); border-radius: 8px; color: #91a0b6; background: rgba(255,255,255,.035); font-size: 16px; cursor: pointer; }
+.cava-remove-stop:disabled { opacity: .25; cursor: not-allowed; }
+.cava-divider { height: 1px; margin: 17px 0 4px; background: rgba(148,163,184,.12); }
+.cava-file-control { display: block; padding: 9px 0 2px; color: #c4cee0; font-size: 11px; }
+.cava-file-control input { display: block; width: 100%; margin-top: 9px; color: #96a5bc; font-size: 10px; }
+.cava-file-control input::file-selector-button { margin-right: 9px; padding: 7px 9px; border: 1px solid rgba(148,163,184,.18); border-radius: 7px; color: #d8e5f5; background: #202b3e; cursor: pointer; }
+.cava-local-player { display: block; width: 100%; height: 34px; margin-top: 10px; filter: invert(.88) hue-rotate(160deg) saturate(.55); }
+.cava-local-player[hidden] { display: none; }
+.cava-audio-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.cava-audio-actions .cava-secondary-button { margin-top: 8px; }
+.cava-audio-info { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; margin-top: 15px; padding: 12px; border: 1px solid rgba(148,163,184,.12); border-radius: 11px; background: rgba(255,255,255,.025); }
+.cava-audio-info span { color: #77879f; font-size: 9px; }
+.cava-audio-info strong { overflow: hidden; color: #bfeee1; font-size: 10px; font-weight: 650; text-overflow: ellipsis; white-space: nowrap; }
+.cava-footer { display: flex; justify-content: space-between; padding: 10px 18px; border-top: 1px solid rgba(148,163,184,.1); color: #596a83; font-size: 8px; font-weight: 800; letter-spacing: .1em; }
+.cava-footer i { color: #4fdbba; font-style: normal; }
+@media (max-width: 480px) {
+  .cava-panel { top: 8px; right: 8px; width: calc(100vw - 16px); max-height: calc(100vh - 16px); border-radius: 14px; }
+  .cava-header { padding: 13px 14px 11px; }
+  .cava-panel-body { padding: 13px 14px 16px; }
+  .cava-tabs { padding-left: 7px; padding-right: 7px; }
+  .cava-tabs button { padding-left: 8px; padding-right: 8px; }
+}

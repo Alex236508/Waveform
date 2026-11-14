@@ -1,0 +1,6 @@
+Waveform is inspired by the CAVA (Console-based Audio Visualizer for ALSA) project:
+https://github.com/karlstav/cava
+
+CAVA is copyright (c) Karl Stavestrand and is distributed under the MIT License.
+This project does not include copied CAVA source code. CAVA's license is available at:
+https://github.com/karlstav/cava/blob/master/LICENSE
